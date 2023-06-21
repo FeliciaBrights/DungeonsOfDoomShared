@@ -25,11 +25,12 @@ namespace DungeonsOfDoom
             do
             {
                 Console.Clear();
-                
                 DisplayRooms();
                 DisplayStats();
-                AskForMovement();
-                AddToInventory();
+                if (AskForMovement())
+                {
+                    AddToInventory();
+                }
             } while (player.IsAlive);
 
             GameOver();
@@ -101,7 +102,7 @@ namespace DungeonsOfDoom
 
         }
 
-        void AskForMovement()
+        bool AskForMovement()
         {
             int newX = player.X;
             int newY = player.Y;
@@ -123,8 +124,11 @@ namespace DungeonsOfDoom
             {
                 player.X = newX;
                 player.Y = newY;
+                return true;
             }
+            else return false;
         }
+
         void AddToInventory()
         {
             if (rooms[player.X, player.Y].ItemInRoom != null)
