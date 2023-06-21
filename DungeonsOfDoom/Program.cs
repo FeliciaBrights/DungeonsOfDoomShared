@@ -50,6 +50,9 @@ namespace DungeonsOfDoom
                         rooms[x, y].MonsterInRoom = new Monster("Skeleton", 30);
                     else if (spawnChance < 20)
                         rooms[x, y].ItemInRoom = new Item("Sword");
+                    if (spawnChance < 5)
+                        rooms[x, y].ItemInRoom = new Item("Spoon");
+
                 }
             }
         }
@@ -78,12 +81,23 @@ namespace DungeonsOfDoom
         {
             Console.WriteLine($"❤️{player.Health}/{Player.MaxHealth}");
 
-            if (player.Inventory != null)
+            if (player.Inventory.Count != 0)
             {
-                foreach (var item in player.Inventory)
+                Console.WriteLine("Inventory:");
+                //Console.WriteLine($"{player.Inventory.Count} {player.Inventory[0].Name}");
+                int numOfSpoons = 0;
+                int numOfSwords = 0;
+                for (int i = 0; i < player.Inventory.Count; i++)
                 {
-                    Console.WriteLine(item.Name);
+                    if (player.Inventory[i].Name == "Spoon")
+                        numOfSpoons++;
+                    else
+                        numOfSwords++;
                 }
+                if(numOfSwords > 0) 
+                    Console.WriteLine($"{numOfSwords} {(numOfSwords > 1 ? "Swords" : "Sword")}");
+                if (numOfSpoons > 0) 
+                    Console.WriteLine($"{numOfSpoons} {(numOfSpoons > 1 ? "Spoons" : "Spoon")}");
             }
 
         }
