@@ -27,7 +27,7 @@ namespace DungeonsOfDoom
                 Console.Clear();
                 
                 DisplayRooms();
-               DisplayStats();
+                DisplayStats();
                 AskForMovement();
                 AddToInventory();
             } while (player.IsAlive);
@@ -47,7 +47,7 @@ namespace DungeonsOfDoom
 
                     int spawnChance = Random.Shared.Next(1, 100 + 1);
                     if (spawnChance < 10)
-                        rooms[x, y].MonsterInRoom = new Monster("Skeleton", 30);
+                        rooms[x, y].MonsterInRoom = new Monster(30);
                     else if (spawnChance < 20)
                         rooms[x, y].ItemInRoom = new Item("Sword");
                     if (spawnChance < 5)
@@ -84,7 +84,6 @@ namespace DungeonsOfDoom
             if (player.Inventory.Count != 0)
             {
                 Console.WriteLine("Inventory:");
-                //Console.WriteLine($"{player.Inventory.Count} {player.Inventory[0].Name}");
                 int numOfSpoons = 0;
                 int numOfSwords = 0;
                 for (int i = 0; i < player.Inventory.Count; i++)
