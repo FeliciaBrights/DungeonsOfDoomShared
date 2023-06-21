@@ -25,13 +25,16 @@ namespace DungeonsOfDoom
             do
             {
                 Console.Clear();
+                
                 DisplayRooms();
-                DisplayStats();
+               DisplayStats();
                 AskForMovement();
+                AddToInventory();
             } while (player.IsAlive);
 
             GameOver();
         }
+
 
         void CreateRooms()
         {
@@ -72,8 +75,17 @@ namespace DungeonsOfDoom
         }
 
         void DisplayStats()
-        {;
+        {
             Console.WriteLine($"❤️{player.Health}/{Player.MaxHealth}");
+
+            if (player.Inventory != null)
+            {
+                foreach (var item in player.Inventory)
+                {
+                    Console.WriteLine(item.Name);
+                }
+            }
+
         }
 
         void AskForMovement()
@@ -99,6 +111,15 @@ namespace DungeonsOfDoom
                 player.X = newX;
                 player.Y = newY;
             }
+        }
+        void AddToInventory()
+        {
+            if (rooms[player.X, player.Y].ItemInRoom != null)
+            {
+                player.Inventory.Add(rooms[player.X, player.Y].ItemInRoom);
+                rooms[player.X, player.Y].ItemInRoom = null; 
+            }
+            
         }
 
         void GameOver()
