@@ -25,5 +25,15 @@
                 opponent.Health -= 10;
             }
         }
+
+        public void TeleportAndHeal(int x, int y)
+        {
+            Health += 5;
+
+            X = Random.Shared.Next(x + 1);
+            Y = Random.Shared.Next(y + 1);
+
+
+        }
     }
 }
