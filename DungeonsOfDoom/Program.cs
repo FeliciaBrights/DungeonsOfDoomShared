@@ -56,7 +56,7 @@ namespace DungeonsOfDoom
                     else if (spawnChance < 20)
                         rooms[x, y].ItemInRoom = new Sword();
                     if (spawnChance < 10 && spawnChance % 2 == 0)
-                        rooms[x, y].ItemInRoom = new Spoon();
+                        rooms[x, y].ItemInRoom = new GlovesOfMetal();
 
                 }
             }
@@ -89,19 +89,19 @@ namespace DungeonsOfDoom
             if (player.Inventory.Count != 0)
             {
                 Console.WriteLine("Inventory:");
-                int numOfSpoons = 0;
+                int numOfGloves = 0;
                 int numOfSwords = 0;
                 for (int i = 0; i < player.Inventory.Count; i++)
                 {
-                    if (player.Inventory[i].Name == "Spoon")
-                        numOfSpoons++;
+                    if (player.Inventory[i] is GlovesOfMetal)
+                        numOfGloves++;
                     else
                         numOfSwords++;
                 }
                 if(numOfSwords > 0) 
                     Console.WriteLine($"{numOfSwords} {(numOfSwords > 1 ? "Swords" : "Sword")}");
-                if (numOfSpoons > 0) 
-                    Console.WriteLine($"{numOfSpoons} {(numOfSpoons > 1 ? "Spoons" : "Spoon")}");
+                if (numOfGloves > 0) 
+                    Console.WriteLine($"{numOfGloves} {(numOfGloves > 1 ? "Gloves of metal" : "Gloves of metal")}");
             }
 
         }

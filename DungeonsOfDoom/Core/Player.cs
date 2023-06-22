@@ -14,7 +14,16 @@
 
         public override void Attack(Entity opponent)
         {
-            opponent.Health -= 10;
+            Item gloves = Inventory.OfType<GlovesOfMetal>().FirstOrDefault();
+            if (gloves != null)
+            {
+                opponent.Health -= 15;
+                Inventory.Remove(gloves);
+            }
+            else
+            {
+                opponent.Health -= 10;
+            }
         }
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Core
 {
-    internal class Spoon : Item
+    internal class GlovesOfMetal : Item
     {
-        public Spoon() : base("Spoon")
+        public GlovesOfMetal() : base("Gloves of metal")
         {
             
         }
