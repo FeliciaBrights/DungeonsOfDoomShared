@@ -12,5 +12,9 @@
         public int Y { get; set; }
         public List<Item> Inventory { get; } = new List<Item>();
 
+        public override void Attack(Entity opponent)
+        {
+            opponent.Health -= 10;
+        }
     }
 }

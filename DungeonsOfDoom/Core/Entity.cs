@@ -16,5 +16,7 @@ namespace DungeonsOfDoom.Core
         {
             Health = health;
         }
+
+        public abstract void Attack(Entity opponent);
     }
 }

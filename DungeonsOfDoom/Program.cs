@@ -29,7 +29,7 @@ namespace DungeonsOfDoom
                 DisplayStats();
                 if (AskForMovement())
                 {
-                    AddToInventory();
+                    ExploreRoom();
                 }
             } while (player.IsAlive);
 
@@ -133,12 +133,29 @@ namespace DungeonsOfDoom
             else return false;
         }
 
-        void AddToInventory()
+        void ExploreRoom()
         {
-            if (rooms[player.X, player.Y].ItemInRoom != null)
+            Room room = rooms[player.X, player.Y];
+            if ((room.MonsterInRoom != null && room.ItemInRoom != null) || room.MonsterInRoom != null)
             {
-                player.Inventory.Add(rooms[player.X, player.Y].ItemInRoom);
-                rooms[player.X, player.Y].ItemInRoom = null; 
+                
+                player.Attack(room.MonsterInRoom);
+
+                if (room.MonsterInRoom.IsAlive)
+                    room.MonsterInRoom.Attack(player);
+                else
+                {
+                    if (room.ItemInRoom != null)
+                    {
+                        player.Inventory.Add(room.ItemInRoom);
+                    }
+                    room.MonsterInRoom = null;
+                }
+            }
+            else if (room.ItemInRoom != null)
+            {
+                player.Inventory.Add(room.ItemInRoom);
+                room.ItemInRoom = null; 
             }
             
         }

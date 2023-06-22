@@ -12,5 +12,10 @@ namespace DungeonsOfDoom.Core
         {
         }
 
+        public override void Attack(Entity opponent)
+        {
+            opponent.Health -= 10;
+
+        }
     }
 }
