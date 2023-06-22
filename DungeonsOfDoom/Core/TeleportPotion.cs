@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Core
 {
-    internal class Sword : Item
+    internal class TeleportPotion : Item
     {
-        public Sword() : base("Sword")
+        public TeleportPotion() : base("Teleport Potion")
         {
 
         }

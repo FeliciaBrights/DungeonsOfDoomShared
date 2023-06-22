@@ -54,7 +54,7 @@ namespace DungeonsOfDoom
                         rooms[x, y].MonsterInRoom = new Mummy();
                     }
                     else if (spawnChance < 20)
-                        rooms[x, y].ItemInRoom = new Sword();
+                        rooms[x, y].ItemInRoom = new TeleportPotion();
                     if (spawnChance < 10 && spawnChance % 2 == 0)
                         rooms[x, y].ItemInRoom = new GlovesOfMetal();
 
