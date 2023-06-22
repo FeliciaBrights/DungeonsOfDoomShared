@@ -12,6 +12,5 @@
         public int Y { get; set; }
         public List<Item> Inventory { get; } = new List<Item>();
 
-
     }
 }

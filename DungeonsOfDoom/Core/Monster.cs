@@ -1,19 +1,13 @@
 ﻿namespace DungeonsOfDoom.Core
 {
-    class Monster : Entity
+    abstract class Monster : Entity
     {
-        public Monster(int health) : base(health)
+        public Monster(int health, string name) : base(health)
         {
-            Name = GenerateMonsterName();
+            Name = name;
         }
 
-        public string Name { get; set; }
-
-        public string GenerateMonsterName()
-        {
-            string[] monster = { "Skeleton", "Mummy", "Ghost"};
-            return monster[Random.Shared.Next(3)];
-        }
+        public string Name { get; }
 
     }
 }
