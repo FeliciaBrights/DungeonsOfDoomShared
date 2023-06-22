@@ -10,12 +10,6 @@ namespace DungeonsOfDoom
         
         static void Main(string[] args)
         {
-            //////////////TESTKOD
-            Player playerTest = new Player();
-            Monster monsterTest = new Skeleton(15);
-            Monster monsterTest2 = new Mummy(15);
-            ////////////////
-           
             Program program = new Program();
             program.Play();
         }
@@ -54,15 +48,15 @@ namespace DungeonsOfDoom
 
                     int spawnChance = Random.Shared.Next(1, 100 + 1);
                     if (spawnChance < 10 && spawnChance >= 5)
-                        rooms[x, y].MonsterInRoom = new Skeleton(30);
+                        rooms[x, y].MonsterInRoom = new Skeleton();
                     else if (spawnChance < 5)
                     {
-                        rooms[x, y].MonsterInRoom = new Mummy(30);
+                        rooms[x, y].MonsterInRoom = new Mummy();
                     }
                     else if (spawnChance < 20)
-                        rooms[x, y].ItemInRoom = new Item("Sword");
+                        rooms[x, y].ItemInRoom = new Sword();
                     if (spawnChance < 10 && spawnChance % 2 == 0)
-                        rooms[x, y].ItemInRoom = new Item("Spoon");
+                        rooms[x, y].ItemInRoom = new Spoon();
 
                 }
             }

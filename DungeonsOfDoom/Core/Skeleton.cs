@@ -8,10 +8,9 @@ namespace DungeonsOfDoom.Core
 {
     internal class Skeleton : Monster
     {
-        public Skeleton(int health) : base(health, Name)
+        public Skeleton() : base(20, "Skeleton")
         {
         }
         
-        public const string Name = "Skeleton";
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Core
 {
-    class Entity
+    abstract class Entity
     {
 
         public int Health { get; set; }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DungeonsOfDoom.Core
 {
-    internal class Mummy : Monster
+    internal class Spoon : Item
     {
-        public Mummy() : base(15, "Mummy")
+        public Spoon() : base("Spoon")
         {
+            
         }
-
     }
 }
