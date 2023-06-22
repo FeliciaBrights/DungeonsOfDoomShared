@@ -154,7 +154,7 @@ namespace DungeonsOfDoom
             }
             else if (room.ItemInRoom != null)
             {
-                player.Inventory.Add(room.ItemInRoom);
+                player.TeleportAndHeal(rooms.GetLength(0), rooms.GetLength(1));
                 room.ItemInRoom = null; 
             }
             
