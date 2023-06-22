@@ -1,15 +1,13 @@
 ﻿namespace DungeonsOfDoom.Core
 {
-    class Player
+    class Player : Entity
     {
-        public const int MaxHealth = 30;
-        public Player()
+        public Player() : base(MaxHealth)
         {
-            Health = MaxHealth;
         }
 
-        public int Health { get; set; }
-        public bool IsAlive { get { return Health > 0; } }
+        public const int MaxHealth = 30;
+
         public int X { get; set; }
         public int Y { get; set; }
         public List<Item> Inventory { get; } = new List<Item>();

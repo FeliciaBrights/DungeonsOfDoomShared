@@ -10,6 +10,10 @@ namespace DungeonsOfDoom
         
         static void Main(string[] args)
         {
+            Player playerTest = new Player();
+            Monster monsterTest = new Monster(15);
+
+
             Program program = new Program();
             program.Play();
         }
