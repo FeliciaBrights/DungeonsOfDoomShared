@@ -19,10 +19,12 @@ namespace DungeonsOfDoom.Core
             get { return health; }
             set
             {
-                if (value <= 30)
-                {
+                if (value  < 0)
+                    health = 0;
+                if (value > 30)
+                    health = 30;
+                else
                     health = value;
-                }
             }
         }
 

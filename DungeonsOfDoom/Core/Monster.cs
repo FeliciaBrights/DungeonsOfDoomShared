@@ -10,6 +10,6 @@
 
         public string Name { get; }
         public static int MonsterCounter { get; set; }
-
+       
     }
 }
