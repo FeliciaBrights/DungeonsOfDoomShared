@@ -15,7 +15,7 @@ namespace DungeonsOfDoom.Core
 
         public static int SpawnChance(int lowerBound, int upperBound)
         {
-            int spawnChance = Random.Shared.Next(a, upperBound + 1);
+            int spawnChance = Random.Shared.Next(lowerBound, upperBound + 1);
             return spawnChance;
         }
     }
