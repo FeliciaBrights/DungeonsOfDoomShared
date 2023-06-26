@@ -70,7 +70,7 @@ namespace DungeonsOfDoom
                 {
                     Room room = rooms[x, y];
                     if (player.X == x && player.Y == y)
-                        Console.Write(player.Health >= Player.MaxHealth / 2 ? "🙂" : "😲");
+                        Console.Write(player.Health >= player.MaxHealth / 2 ? "🙂" : "😲");
                     else if (room.MonsterInRoom != null)
                         Console.Write("😈");
                     else if (room.ItemInRoom != null)
@@ -84,7 +84,7 @@ namespace DungeonsOfDoom
 
         void DisplayStats()
         {
-            Console.WriteLine($"❤️{player.Health}/{Player.MaxHealth}\t👹{Monster.MonsterCounter}");
+            Console.WriteLine($"❤️{player.Health}/{player.MaxHealth}\t👹{Monster.MonsterCounter}");
 
             if (player.Inventory.Count != 0)
             {

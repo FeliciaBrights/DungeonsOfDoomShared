@@ -2,11 +2,10 @@
 {
     class Player : Entity
     {
-        public Player() : base(MaxHealth)
+        public Player() : base(30)
         {
         }
 
-        public const int MaxHealth = 30;
 
         public int X { get; set; }
         public int Y { get; set; }

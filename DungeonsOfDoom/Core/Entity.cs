@@ -9,11 +9,29 @@ namespace DungeonsOfDoom.Core
     abstract class Entity
     {
 
-        public int Health { get; set; }
+
+        public int MaxHealth { get; set; }
+
+        private int health;
+
+        public int Health
+        {
+            get { return health; }
+            set
+            {
+                if (value > 0 && value <= 30)
+                {
+                    health = value;
+                }
+            }
+        }
+
+
         public bool IsAlive { get { return Health > 0; } }
 
         public Entity(int health)
         {
+            MaxHealth = health;
             Health = health;
         }
 
