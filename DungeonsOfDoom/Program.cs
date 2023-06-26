@@ -31,7 +31,7 @@ namespace DungeonsOfDoom
                 {
                     ExploreRoom();
                 }
-            } while (player.IsAlive);
+            } while (player.IsAlive && Monster.MonsterCounter > 0);
 
             GameOver();
         }

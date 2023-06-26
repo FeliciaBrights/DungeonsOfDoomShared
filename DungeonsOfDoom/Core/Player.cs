@@ -30,9 +30,8 @@
         {
             Health += 5;
 
-            X = Random.Shared.Next(x);
-            Y = Random.Shared.Next(y);
-
+            X = RandomUtils.SpawnChance(0, x);
+            Y = RandomUtils.SpawnChance(0, y);
 
         }
     }
