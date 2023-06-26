@@ -19,7 +19,7 @@ namespace DungeonsOfDoom.Core
             get { return health; }
             set
             {
-                if (value > 0 && value <= 30)
+                if (value >= 0 && value <= 30)
                 {
                     health = value;
                 }
@@ -32,7 +32,7 @@ namespace DungeonsOfDoom.Core
         public Entity(int health)
         {
             MaxHealth = health;
-            Health = health;
+            Health = MaxHealth;
         }
 
         public abstract void Attack(Entity opponent);
