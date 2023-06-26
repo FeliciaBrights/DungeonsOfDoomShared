@@ -84,7 +84,7 @@ namespace DungeonsOfDoom
 
         void DisplayStats()
         {
-            Console.WriteLine($"❤️{player.Health}/{Player.MaxHealth}");
+            Console.WriteLine($"❤️{player.Health}/{Player.MaxHealth}\t👹{Monster.MonsterCounter}");
 
             if (player.Inventory.Count != 0)
             {
@@ -150,6 +150,7 @@ namespace DungeonsOfDoom
                         player.Inventory.Add(room.ItemInRoom);
                     }
                     room.MonsterInRoom = null;
+                    Monster.MonsterCounter--;
                 }
             }
             else if (room.ItemInRoom != null)

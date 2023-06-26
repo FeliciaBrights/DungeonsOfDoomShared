@@ -30,8 +30,8 @@
         {
             Health += 5;
 
-            X = Random.Shared.Next(x + 1);
-            Y = Random.Shared.Next(y + 1);
+            X = Random.Shared.Next(x);
+            Y = Random.Shared.Next(y);
 
 
         }
