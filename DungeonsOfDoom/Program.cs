@@ -7,7 +7,7 @@ namespace DungeonsOfDoom
     {
         Room[,] rooms;
         Player player;
-        
+
         static void Main(string[] args)
         {
             Program program = new Program();
@@ -46,7 +46,7 @@ namespace DungeonsOfDoom
                 {
                     rooms[x, y] = new Room();
 
-                    int spawnChance = Random.Shared.Next(1, 100 + 1);
+                    int spawnChance = RandomUtils.SpawnChance(0, 101);
                     if (spawnChance < 10 && spawnChance >= 5)
                         rooms[x, y].MonsterInRoom = new Skeleton();
                     else if (spawnChance < 5)
@@ -55,7 +55,7 @@ namespace DungeonsOfDoom
                     }
                     else if (spawnChance < 20)
                         rooms[x, y].ItemInRoom = new TeleportPotion();
-                    if (spawnChance < 10 && spawnChance % 2 == 0)
+                    if (spawnChance < 10 && RandomUtils.IsEven(spawnChance))
                         rooms[x, y].ItemInRoom = new GlovesOfMetal();
 
                 }
@@ -98,9 +98,9 @@ namespace DungeonsOfDoom
                     else
                         numOfSwords++;
                 }
-                if(numOfSwords > 0) 
+                if (numOfSwords > 0)
                     Console.WriteLine($"{numOfSwords} {(numOfSwords > 1 ? "Swords" : "Sword")}");
-                if (numOfGloves > 0) 
+                if (numOfGloves > 0)
                     Console.WriteLine($"{numOfGloves} {(numOfGloves > 1 ? "Gloves of metal" : "Gloves of metal")}");
             }
 
@@ -138,7 +138,7 @@ namespace DungeonsOfDoom
             Room room = rooms[player.X, player.Y];
             if ((room.MonsterInRoom != null && room.ItemInRoom != null) || room.MonsterInRoom != null)
             {
-                
+
                 player.Attack(room.MonsterInRoom);
 
                 if (room.MonsterInRoom.IsAlive)
@@ -156,15 +156,22 @@ namespace DungeonsOfDoom
             else if (room.ItemInRoom != null)
             {
                 player.TeleportAndHeal(rooms.GetLength(0), rooms.GetLength(1));
-                room.ItemInRoom = null; 
+                room.ItemInRoom = null;
             }
-            
+
         }
 
         void GameOver()
         {
             Console.Clear();
-            Console.WriteLine("Game over...");
+            if (!player.IsAlive)
+            {
+
+                Console.WriteLine("Game over...");
+            }
+            else
+                Console.WriteLine("You won!");
+
             Console.ReadKey();
             Play();
         }
