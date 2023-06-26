@@ -9,7 +9,7 @@
 
         public int X { get; set; }
         public int Y { get; set; }
-        public List<Item> Inventory { get; } = new List<Item>();
+        public List<ICollectible> Inventory { get; } = new List<ICollectible>();
 
         public override void Attack(Entity opponent)
         {

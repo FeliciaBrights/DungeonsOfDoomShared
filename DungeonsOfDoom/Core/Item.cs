@@ -1,6 +1,6 @@
 ﻿namespace DungeonsOfDoom.Core
 {
-    abstract class Item
+    abstract class Item : ICollectible
     {
         public Item(string name)
         {

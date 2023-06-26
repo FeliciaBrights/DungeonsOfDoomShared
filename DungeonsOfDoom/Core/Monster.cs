@@ -1,6 +1,6 @@
 ﻿namespace DungeonsOfDoom.Core
 {
-    abstract class Monster : Entity
+    abstract class Monster : Entity, ICollectible
     {
         public Monster(int health, string name) : base(health)
         {

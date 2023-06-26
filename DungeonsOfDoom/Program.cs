@@ -90,18 +90,23 @@ namespace DungeonsOfDoom
             {
                 Console.WriteLine("Inventory:");
                 int numOfGloves = 0;
-                int numOfSwords = 0;
+                int numOfSkeletons = 0;
+                int numOfMummies = 0;
                 for (int i = 0; i < player.Inventory.Count; i++)
                 {
                     if (player.Inventory[i] is GlovesOfMetal)
                         numOfGloves++;
+                    else if (player.Inventory[i] is Skeleton)
+                        numOfSkeletons++;
                     else
-                        numOfSwords++;
+                        numOfMummies++;
                 }
-                if (numOfSwords > 0)
-                    Console.WriteLine($"{numOfSwords} {(numOfSwords > 1 ? "Swords" : "Sword")}");
                 if (numOfGloves > 0)
                     Console.WriteLine($"{numOfGloves} {(numOfGloves > 1 ? "Gloves of metal" : "Gloves of metal")}");
+                if (numOfSkeletons > 0)
+                    Console.WriteLine($"{numOfSkeletons} {(numOfSkeletons > 1 ? "Skeleton cadavers" : "Skeleton cadaver")}");
+                if (numOfMummies > 0)
+                    Console.WriteLine($"{numOfMummies} {(numOfMummies > 1 ? "Mummy cadavers" : "Mummy cadaver")}");
             }
 
         }
@@ -149,6 +154,7 @@ namespace DungeonsOfDoom
                     {
                         player.Inventory.Add(room.ItemInRoom);
                     }
+                    player.Inventory.Add(room.MonsterInRoom);
                     room.MonsterInRoom = null;
                     Monster.MonsterCounter--;
                 }
